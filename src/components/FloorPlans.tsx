@@ -9,13 +9,6 @@ const floorData = [
     bathrooms: 2,
     image: '/Floors_1-4.jpg',
     features: ['Multiple 2 BHK units per floor', 'Spacious living areas', 'Modern kitchen', 'Attached balconies', 'Premium finishes'],
-    units: [
-      { flat: 'A', type: '2 BHK', area: 1007 },
-      { flat: 'B', type: '2 BHK', area: 1024 },
-      { flat: 'C', type: '2 BHK', area: 1095 },
-      { flat: 'D', type: '2 BHK', area: 1014 },
-    ],
-    floors: [1, 2, 3, 4],
   },
   {
     type: '5th Floor',
@@ -24,12 +17,6 @@ const floorData = [
     bathrooms: 2,
     image: '/5th_Floor.jpg',
     features: ['Open terrace access', 'Enhanced ventilation', 'Premium 2 BHK units', 'Scenic views', 'Luxury finishes'],
-    units: [
-      { flat: 'A', type: '2 BHK', area: 1007 },
-      { flat: 'B', type: '2 BHK', area: 1031 },
-      { flat: 'C', type: '2 BHK', area: 1101 },
-    ],
-    floors: [5],
   },
 ];
 
@@ -91,40 +78,6 @@ export default function FloorPlans() {
                 <p className="text-2xl font-bold text-gray-900">{plan.bathrooms}</p>
                 <p className="text-sm text-gray-600">Bathrooms</p>
               </div>
-            </div>
-
-            {/* Flat area table */}
-            <div className="bg-gray-50 rounded-xl overflow-hidden">
-              <div className="px-5 py-3 bg-red-600">
-                <h4 className="text-sm font-semibold text-white uppercase tracking-wide">Unit-wise Area Breakdown</h4>
-              </div>
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="bg-red-50 text-gray-600 text-xs uppercase tracking-wide">
-                    <th className="px-5 py-3 text-left font-semibold">Floor</th>
-                    <th className="px-5 py-3 text-left font-semibold">Flat</th>
-                    <th className="px-5 py-3 text-left font-semibold">Type</th>
-                    <th className="px-5 py-3 text-right font-semibold">Area (Sq. Ft.)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {plan.floors.flatMap((floor) =>
-                    plan.units.map((unit, i) => (
-                      <tr
-                        key={`${floor}-${unit.flat}`}
-                        className={`border-t border-gray-200 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}
-                      >
-                        <td className="px-5 py-3 text-gray-700 font-medium">{floor}</td>
-                        <td className="px-5 py-3 text-gray-700">{unit.flat}</td>
-                        <td className="px-5 py-3">
-                          <span className="bg-red-100 text-red-700 text-xs font-semibold px-2 py-0.5 rounded-full">{unit.type}</span>
-                        </td>
-                        <td className="px-5 py-3 text-right font-bold text-gray-900">{unit.area.toLocaleString()}</td>
-                      </tr>
-                    ))
-                  )}
-                </tbody>
-              </table>
             </div>
 
             <div className="bg-gray-50 p-6 rounded-xl">
